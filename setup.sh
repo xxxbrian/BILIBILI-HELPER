@@ -37,10 +37,10 @@ function setCron(){
 read -p "请粘贴SESSDATA并回车:" SESSDATA
 read -p "请粘贴DEDEUSERID并回车:" DEDEUSERID
 read -p "请粘贴BILI_JCT并回车:" BILI_JCT
-read -p "请粘贴SCKEY并回车:" SCKEY
+read -p "请输入额外参数并回车(没有请留空):" ARG
 
 download $version
-setCron "${DEDEUSERID}" "${SESSDATA}" "${BILI_JCT}" "${SCKEY}"
+setCron "${DEDEUSERID}" "${SESSDATA}" "${BILI_JCT}" "${ARG}"
 command -v java >/dev/null 2>&1 || installJava
 
 echo "执行完成"
