@@ -19,7 +19,7 @@ public abstract class AbstractPush implements Push {
     @Override
     public final PushResult doPush(PushMetaInfo metaInfo, String content) {
         String url = generatePushUrl(metaInfo);
-        log.info("DEBUG:"+ url);
+//        log.info("DEBUG:"+ url);
         assert null != url : "推送URL不能为空";
         String pushContent = generatePushBody(metaInfo, content);
         JsonObject jsonObject = HttpUtil.doPost(url, pushContent);

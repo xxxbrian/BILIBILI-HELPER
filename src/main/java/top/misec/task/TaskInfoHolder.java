@@ -33,9 +33,11 @@ public class TaskInfoHolder {
         int needExp = userInfo.getLevel_info().getNext_exp_asInt()
                 - userInfo.getLevel_info().getCurrent_exp();
 
+        int Lv6needExp = 28800 - userInfo.getLevel_info().getCurrent_exp();
+
         if (userInfo.getLevel_info().getCurrent_level() < 6) {
             log.info("按照当前进度，升级到升级到Lv" + (userInfo.getLevel_info().getCurrent_level() + 1) + "还需要: " +
-                    (needExp / todayExp) + "天");
+                    (needExp / todayExp) + "天，升级到Lv6还需要: " + (Lv6needExp / todayExp) + "天");
         } else {
             log.info("当前等级Lv6，经验值为：" + userInfo.getLevel_info().getCurrent_exp());
         }

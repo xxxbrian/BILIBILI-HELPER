@@ -39,7 +39,7 @@ public class UnitTest {
         //new CoinAdd().run();
 
 //        GetVideoId getVideoId=new GetVideoId();
-//        getVideoId.videoUpdate("14602398");
+//        getVideoId.videoUpdate("50051237");
 //        System.out.println(getVideoId.getFollowUpVideoList());
 //        System.out.println(getVideoId.getRankVideoList());
 
