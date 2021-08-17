@@ -34,13 +34,32 @@ function setCron(){
   fi
 }
 
-read -p "请粘贴SESSDATA并回车:" SESSDATA
-read -p "请粘贴DEDEUSERID并回车:" DEDEUSERID
-read -p "请粘贴BILI_JCT并回车:" BILI_JCT
-read -p "请输入额外参数并回车(没有请留空):" ARG
+function update() {
+  wget -O "/tmp/BILIBILI-HELPER.zip" "https://glare.now.sh/xxxbrian/BILIBILI-HELPER/BILIBILI-HELPER-v${1}.zip"
+  mkdir "/tmp/BILIBILI-HELPER"
+  command -v unzip >/dev/null 2>&1 || installUnzip
+  unzip -o "/tmp/BILIBILI-HELPER.zip" -d "/tmp/BILIBILI-HELPER"
+  mv "/tmp/BILIBILI-HELPER/BILIBILI-HELPER-v${1}.jar" "${HOME}/BILIBILI-HELPER/BILIBILI-HELPER.jar" -f
+}
 
-download $version
-setCron "${DEDEUSERID}" "${SESSDATA}" "${BILI_JCT}" "${ARG}"
-command -v java >/dev/null 2>&1 || installJava
+function clean() {
+    rm "/tmp/BILIBILI-HELPER.zip" -f
+    rm "/tmp/BILIBILI-HELPER" -rf
+}
 
-echo "执行完成"
+echo -e "\033[47;30mBILIBILI-HELPER\033[0m"
+if [ ! -d "${HOME}/BILIBILI-HELPER" ]; then
+  echo -e "\033[36m初次安装，配置Cookie信息：\033[0m"
+  read -p "请粘贴SESSDATA并回车:" SESSDATA
+  read -p "请粘贴DEDEUSERID并回车:" DEDEUSERID
+  read -p "请粘贴BILI_JCT并回车:" BILI_JCT
+  read -p "请输入额外参数并回车(没有请留空):" ARG
+  download $version
+  setCron "${DEDEUSERID}" "${SESSDATA}" "${BILI_JCT}" "${ARG}"
+  command -v java >/dev/null 2>&1 || installJava
+else
+  echo -e "\033[33m检测到旧版本存在，仅更新jar包文件(v${version})\033[0m"
+  update
+fi
+clean
+echo -e "\033[32m执行完成\033[0m"
