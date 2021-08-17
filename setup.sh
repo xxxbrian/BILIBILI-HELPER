@@ -59,7 +59,7 @@ if [ ! -d "${HOME}/BILIBILI-HELPER" ]; then
   command -v java >/dev/null 2>&1 || installJava
 else
   echo -e "\033[33m检测到旧版本存在，仅更新jar包文件(v${version})\033[0m"
-  update
+  update $version
 fi
 clean
 echo -e "\033[32m执行完成\033[0m"
