@@ -12,6 +12,12 @@
 <h4 align="center">哔哩哔哩每日任务投币，点赞，分享视频，直播签到，银瓜子兑换硬币，漫画每日签到，每日最高可获取 65 经验值</h4>
 </div>
 
+## TODO
+
+* OpenWRT封装支持
+* 检测动态中24小时内互动抽奖自动转发
+* python版本
+
 ## 功能列表
 
 - [x] 通过docker或者云函数执行定时任务。_【运行时间可自定义】_
@@ -199,6 +205,6 @@ java -jar /home/BILIBILI-HELPER.jar DEDEUSERID SESSDATA BILI_JCT >> /var/log/bil
 
 ## 参考列表
 
-- [JunzhouLiu/BILIBILI-HELPER](https://github.com/JunzhouLiu/BILIBILI-HELPER)
+- [JunzhouLiu/BILIBILI-HELPER](https://github.com/JunzhouLiu/BILIBILI-HELPER) (原项目)
 - [SocialSisterYi/bilibili-API-collect](https://github.com/SocialSisterYi/bilibili-API-collect)
 - [happy888888/BiliExp](https://github.com/happy888888/BiliExp)
